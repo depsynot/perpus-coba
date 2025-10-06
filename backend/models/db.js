@@ -4,7 +4,8 @@ const db = mysql.createConnection({
   host: 'localhost',  // Pastikan host dan port database sesuai
   user: 'root',  // Sesuaikan dengan username database kamu
   password: '',  // Password database
-  database: 'library_db'  // Nama database yang digunakan
+  database: 'library_db',  // Nama database yang digunakan
+  port: 3306 
 });
 
 db.connect(err => {
