@@ -1,6 +1,6 @@
 const db = require('../models/db');
 
-// Mendapatkan semua buku
+// GET BOOKS
 const getBooks = (req, res) => {
   db.query('SELECT * FROM books', (err, results) => {
     if (err) {
@@ -11,7 +11,7 @@ const getBooks = (req, res) => {
   });
 };
 
-// Menambahkan buku baru
+// POST BOOK
 const addBook = (req, res) => {
   const { title, author, publisher, stock } = req.body;
   const query = 'INSERT INTO books (title, author, publisher, stock) VALUES (?, ?, ?, ?)';
@@ -24,10 +24,10 @@ const addBook = (req, res) => {
   });
 };
 
-// Mengupdate buku berdasarkan ID
+// UPDATE BOOKS BY ID
 const updateBook = (req, res) => {
-  const { id } = req.params; // Mengambil ID dari URL params
-  const { title, author, publisher, stock } = req.body; // Mengambil data buku dari body
+  const { id } = req.params;
+  const { title, author, publisher, stock } = req.body;
 
   const query = 'UPDATE books SET title = ?, author = ?, publisher = ?, stock = ? WHERE id = ?';
   db.query(query, [title, author, publisher, stock, id], (err, results) => {
@@ -43,9 +43,9 @@ const updateBook = (req, res) => {
   });
 };
 
-// Menghapus buku berdasarkan ID
+// DELETED BOOKS BY ID
 const deleteBook = (req, res) => {
-  const { id } = req.params; // Mengambil ID dari URL params
+  const { id } = req.params; 
   const query = 'DELETE FROM books WHERE id = ?';
   
   db.query(query, [id], (err, results) => {

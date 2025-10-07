@@ -1,14 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const bookRoutes = require('./routes/bookRoutes');  // Pastikan path ke routes sudah benar
+const bookRoutes = require('./routes/bookRoutes'); 
 const db = require ('./models/db');
 
-dotenv.config();  // Memuat variabel lingkungan dari file .env
+dotenv.config();  
 
 const app = express();
-app.use(express.json());  // Parsing JSON body dari request
+app.use(express.json());  
 
-// Routing untuk buku
+// ROUTING
 app.use('/api/books', bookRoutes);
 
 const PORT = process.env.PORT || 5000;

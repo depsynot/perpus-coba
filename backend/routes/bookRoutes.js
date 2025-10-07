@@ -2,16 +2,16 @@ const express = require('express');
 const router = express.Router();
 const { getBooks, addBook, updateBook, deleteBook } = require('../controllers/bookController');
 
-// Mendapatkan semua buku
+// GET ALL BOOKS
 router.get('/', getBooks);
 
-// Menambahkan buku baru
+// POST BOOKS
 router.post('/', addBook);
 
-// Mengupdate buku berdasarkan ID
+// UPDATE BOOKS BY ID
 router.put('/:id', updateBook);
 
-// Menghapus buku berdasarkan ID
+// DELETED BOOKS BY ID
 router.delete('/:id', deleteBook);
 
 module.exports = router;
